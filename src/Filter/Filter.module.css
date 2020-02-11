@@ -1,0 +1,10 @@
+@value input-width from '../vars.module.css';
+
+.filterLabel{
+  display: flex;
+  flex-direction: column;
+}
+
+.filterInput{
+  width: input-width;
+}
