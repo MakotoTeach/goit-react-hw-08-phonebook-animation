@@ -7,7 +7,6 @@ import ContactList from "./ContactList/ContactList";
 import AddContactForm from "./AddContactForm/AddContactForm";
 import Filter from "./Filter/Filter";
 import FilterAppear from "./FilterAppear.module.css";
-import NotificationAppear from "./NotificationAppear.module.css"
 
 export default class App extends Component {
   state = {
@@ -85,9 +84,9 @@ export default class App extends Component {
     const visibleContacts = this.getVisibleContacts();
     return (
       <Layout>
-        <CSSTransition in={contactExist} timeout={250} classNames={NotificationAppear} unmountOnExit>
-          <Notification remove={this.removeNotification}></Notification>
-        </CSSTransition>  
+        <Notification show={contactExist} remove={this.removeNotification}>
+          <p>Contact already exist!</p>
+        </Notification>
         <AddContactForm onAddContact={this.addContact} />
         <CSSTransition
           in={contacts.length >= 2}
@@ -104,8 +103,6 @@ export default class App extends Component {
             onRemoveContact={this.removeContact}
           />
         )} */}
-
-        
         <ContactList
             contacts={visibleContacts}
             onRemoveContact={this.removeContact}
