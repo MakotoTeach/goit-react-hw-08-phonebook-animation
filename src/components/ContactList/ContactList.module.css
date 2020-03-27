@@ -1,0 +1,27 @@
+.list{
+  padding-top: 20px;
+  width: 500px;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.enter{
+opacity: 0;
+transform: scale(0.1);
+}
+.enterActive{
+opacity: 1;
+transform: scale(1);
+transition: all 250ms linear;
+}
+.exit{
+  opacity: 1;
+  transform: scale(1);
+}
+.exitActive {
+  opacity: 0;
+  transform: scale(0.1);
+  transition: all 250ms linear;
+}

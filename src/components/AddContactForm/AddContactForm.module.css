@@ -1,0 +1,43 @@
+@value input-width from '../../vars.module.css';
+@value input-height from '../../vars.module.css';
+
+.submitForm{
+  width: 500px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+  border-radius: 2px;
+}
+.formLabel{
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.formInput {
+  height: input-height;
+  margin-bottom: 10px;
+}
+
+.formButton {
+  height: 35px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: rgb(65, 63, 226);
+  color: aliceblue;
+  transition: 0.2s;
+
+}
+.formButton:hover{
+  background-color: rgb(14, 17, 216);
+  transform: scale(1.01);
+}
+.formButton:focus {
+  transform: scale(0.96);
+}

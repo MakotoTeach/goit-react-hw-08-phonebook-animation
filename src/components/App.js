@@ -1,18 +1,24 @@
 import React, { Component } from "react";
 import { uuid } from "uuidv4";
-import ContactList from "./ContactList";
+import { CSSTransition } from "react-transition-group";
+import Notification from './Notification/Notification'
+import Layout from "./Layout/Layout";
+import ContactList from "./ContactList/ContactList";
 import AddContactForm from "./AddContactForm/AddContactForm";
 import Filter from "./Filter/Filter";
+import FilterAppear from "./FilterAppear.module.css";
+import NotificationAppear from "./NotificationAppear.module.css"
 
 export default class App extends Component {
   state = {
     contacts: [
-      { id: "id-1", name: "Rosie Simpson", number: "459-12-56" },
-      { id: "id-2", name: "Hermione Kline", number: "443-89-12" },
-      { id: "id-3", name: "Eden Clements", number: "645-17-79" },
-      { id: "id-4", name: "Annie Copeland", number: "227-91-26" }
+      // { id: "id-1", name: "Rosie Simpson", number: "459-12-56" },
+      // { id: "id-2", name: "Hermione Kline", number: "443-89-12" },
+      // { id: "id-3", name: "Eden Clements", number: "645-17-79" },
+      // { id: "id-4", name: "Annie Copeland", number: "227-91-26" }
     ],
-    filter: ""
+    filter: "",
+    contactExist: null
   };
 
   componentDidMount() {
@@ -26,7 +32,6 @@ export default class App extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    
     if (prevState.contacts !== this.state.cotacts) {
       localStorage.setItem("contacts", JSON.stringify(this.state.contacts));
     }
@@ -41,7 +46,9 @@ export default class App extends Component {
     };
 
     if (isExist) {
-      alert(`contact with name ${name} is allready exist`);
+      this.setState({
+        contactExist: Boolean(isExist)
+      });
     } else {
       this.setState(prevState => {
         return {
@@ -59,6 +66,10 @@ export default class App extends Component {
     });
   };
 
+  removeNotification = () => {
+    this.setState({contactExist: false})
+  }
+
   changeFilter = filter => {
     this.setState({ filter });
   };
@@ -70,23 +81,36 @@ export default class App extends Component {
   };
 
   render() {
-    const { filter, contacts } = this.state;
+    const { filter, contacts, contactExist } = this.state;
     const visibleContacts = this.getVisibleContacts();
     return (
-      <div>
-        <h1>Phonebook</h1>
+      <Layout>
+        <CSSTransition in={contactExist} timeout={250} classNames={NotificationAppear} unmountOnExit>
+          <Notification remove={this.removeNotification}></Notification>
+        </CSSTransition>  
         <AddContactForm onAddContact={this.addContact} />
-        <h2>Contacts</h2>
-        {contacts.length > 2 && (
+        <CSSTransition
+          in={contacts.length >= 2}
+          classNames={FilterAppear}
+          timeout={250}
+          unmountOnExit
+        >
           <Filter value={filter} onChangeFilter={this.changeFilter} />
-        )}
-        {visibleContacts.length > 0 && (
+        </CSSTransition>
+
+        {/* {visibleContacts.length > 0 && (
           <ContactList
             contacts={visibleContacts}
             onRemoveContact={this.removeContact}
           />
-        )}
-      </div>
+        )} */}
+
+        
+        <ContactList
+            contacts={visibleContacts}
+            onRemoveContact={this.removeContact}
+          />
+      </Layout>
     );
   }
 }

@@ -1,0 +1,28 @@
+.wrapper{
+  margin: auto;
+  width: 600px;
+}
+.container{
+  position: relative;
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+  margin: auto;
+  min-height: 100vh;
+  padding: 20px;
+}
+.headline{
+  color: rgb(56, 56, 240);
+  font-size: 36px;
+}
+
+.appear {
+  opacity: 0;
+  transform: translateX(-100%);
+
+}
+.appearActive{
+  opacity: 1;
+  transform: translateY(0);
+  transition: transform 500ms linear;
+}
