@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/goit-react-hw-08-phonebook-animation/static/css/main.4c564e94.chunk.css",
-    "main.js": "/goit-react-hw-08-phonebook-animation/static/js/main.aed4ac67.chunk.js",
-    "main.js.map": "/goit-react-hw-08-phonebook-animation/static/js/main.aed4ac67.chunk.js.map",
+    "main.css": "/goit-react-hw-08-phonebook-animation/static/css/main.122d8a57.chunk.css",
+    "main.js": "/goit-react-hw-08-phonebook-animation/static/js/main.b37cde97.chunk.js",
+    "main.js.map": "/goit-react-hw-08-phonebook-animation/static/js/main.b37cde97.chunk.js.map",
     "runtime-main.js": "/goit-react-hw-08-phonebook-animation/static/js/runtime-main.27b20532.js",
     "runtime-main.js.map": "/goit-react-hw-08-phonebook-animation/static/js/runtime-main.27b20532.js.map",
-    "static/js/2.afc0b597.chunk.js": "/goit-react-hw-08-phonebook-animation/static/js/2.afc0b597.chunk.js",
-    "static/js/2.afc0b597.chunk.js.map": "/goit-react-hw-08-phonebook-animation/static/js/2.afc0b597.chunk.js.map",
+    "static/js/2.53185fc9.chunk.js": "/goit-react-hw-08-phonebook-animation/static/js/2.53185fc9.chunk.js",
+    "static/js/2.53185fc9.chunk.js.map": "/goit-react-hw-08-phonebook-animation/static/js/2.53185fc9.chunk.js.map",
     "index.html": "/goit-react-hw-08-phonebook-animation/index.html",
-    "precache-manifest.8c16ef8a5a120a6ed53f9ec1812054ac.js": "/goit-react-hw-08-phonebook-animation/precache-manifest.8c16ef8a5a120a6ed53f9ec1812054ac.js",
+    "precache-manifest.8ac81d96d30bd0b474668548e0d343f8.js": "/goit-react-hw-08-phonebook-animation/precache-manifest.8ac81d96d30bd0b474668548e0d343f8.js",
     "service-worker.js": "/goit-react-hw-08-phonebook-animation/service-worker.js",
-    "static/css/main.4c564e94.chunk.css.map": "/goit-react-hw-08-phonebook-animation/static/css/main.4c564e94.chunk.css.map",
-    "static/js/2.afc0b597.chunk.js.LICENSE": "/goit-react-hw-08-phonebook-animation/static/js/2.afc0b597.chunk.js.LICENSE"
+    "static/css/main.122d8a57.chunk.css.map": "/goit-react-hw-08-phonebook-animation/static/css/main.122d8a57.chunk.css.map",
+    "static/js/2.53185fc9.chunk.js.LICENSE": "/goit-react-hw-08-phonebook-animation/static/js/2.53185fc9.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.27b20532.js",
-    "static/js/2.afc0b597.chunk.js",
-    "static/css/main.4c564e94.chunk.css",
-    "static/js/main.aed4ac67.chunk.js"
+    "static/js/2.53185fc9.chunk.js",
+    "static/css/main.122d8a57.chunk.css",
+    "static/js/main.b37cde97.chunk.js"
   ]
 }
