@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { CSSTransition } from "react-transition-group";
 import styles from "./Notification.module.css";
 
-const Notification = ({ children, show, timeout = 250, remove }) => (
+export const Notification = ({ children, show, timeout = 250, remove }) => (
   <CSSTransition
     in={show}
     timeout={timeout}
@@ -24,5 +24,3 @@ Notification.propTypes = {
   timeout: PropTypes.number,
   remove: PropTypes.func.isRequired
 };
-
-export default Notification;

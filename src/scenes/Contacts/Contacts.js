@@ -1,14 +1,11 @@
 import React, { Component } from "react";
-import { uuid } from "uuidv4";
 import { CSSTransition } from "react-transition-group";
-import Notification from './Notification/Notification'
-import Layout from "./Layout/Layout";
-import ContactList from "./ContactList/ContactList";
-import AddContactForm from "./AddContactForm/AddContactForm";
-import Filter from "./Filter/Filter";
-import FilterAppear from "./FilterAppear.module.css";
+import { Notification, Layout } from '../../components';
+import { ContactList, AddContactForm, Filter } from './components';
+import { uuid } from "uuidv4";
+import ContactsStyles from "./Contacts.module.css";
 
-export default class App extends Component {
+export class Contacts extends Component {
   state = {
     contacts: [
       // { id: "id-1", name: "Rosie Simpson", number: "459-12-56" },
@@ -35,9 +32,9 @@ export default class App extends Component {
       localStorage.setItem("contacts", JSON.stringify(this.state.contacts));
     }
   }
+
   addContact = (name, number) => {
     const isExist = this.state.contacts.find(contact => contact.name === name);
-
     const contact = {
       id: uuid(),
       name,
@@ -66,8 +63,8 @@ export default class App extends Component {
   };
 
   removeNotification = () => {
-    this.setState({contactExist: false})
-  }
+    this.setState({ contactExist: false });
+  };
 
   changeFilter = filter => {
     this.setState({ filter });
@@ -79,35 +76,32 @@ export default class App extends Component {
     );
   };
 
+
   render() {
     const { filter, contacts, contactExist } = this.state;
-    const visibleContacts = this.getVisibleContacts();
+
     return (
       <Layout>
-        <Notification show={contactExist} remove={this.removeNotification}>
-          <p>Contact already exist!</p>
-        </Notification>
-        <AddContactForm onAddContact={this.addContact} />
-        <CSSTransition
-          in={contacts.length >= 2}
-          classNames={FilterAppear}
-          timeout={250}
-          unmountOnExit
-        >
-          <Filter value={filter} onChangeFilter={this.changeFilter} />
-        </CSSTransition>
-
-        {/* {visibleContacts.length > 0 && (
-          <ContactList
-            contacts={visibleContacts}
-            onRemoveContact={this.removeContact}
-          />
-        )} */}
-        <ContactList
-            contacts={visibleContacts}
-            onRemoveContact={this.removeContact}
-          />
-      </Layout>
-    );
+      <Notification show={contactExist} remove={this.removeNotification}>
+        <p>Contact already exist!</p>
+      </Notification>
+      <AddContactForm onAddContact={this.addContact} />
+      <CSSTransition
+        in={contacts.length >= 2}
+        classNames={ContactsStyles}
+        timeout={250}
+        unmountOnExit
+      >
+        <Filter value={filter} onChangeFilter={this.changeFilter} />
+      </CSSTransition>
+      {/* {visibleContacts.length > 0 && (
+  <ContactList
+    contacts={visibleContacts}
+    onRemoveContact={this.removeContact}
+  />
+)} */}
+      <ContactList contacts={this.getVisibleContacts()} onRemoveContact={this.removeContact} />
+    </Layout>
+    )
   }
 }

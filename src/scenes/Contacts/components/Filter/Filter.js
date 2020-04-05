@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styles from "./Filter.module.css";
 
-function Filter({ value, onChangeFilter }) {
+export function Filter({ value, onChangeFilter }) {
   return (
     <div className={styles.container}>
       <label className={styles.filterLabel}>
@@ -23,4 +23,3 @@ Filter.propTypes = {
   onChangeFilter: PropTypes.func.isRequired
 };
 
-export default Filter;

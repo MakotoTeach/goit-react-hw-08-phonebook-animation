@@ -4,7 +4,7 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 import ContactListItem from "../ContactListItem/ContactListItem";
 import styles from "./ContactList.module.css";
 
-function ContactList({ contacts, onRemoveContact }) {
+export function ContactList({ contacts, onRemoveContact }) {
   return (
     <TransitionGroup component="ul" className={styles.list}>
       {contacts.map(({ id, name, number }) => (
@@ -31,4 +31,3 @@ ContactList.propTypes = {
   onRemoveContact: PropTypes.func.isRequired
 };
 
-export default ContactList;

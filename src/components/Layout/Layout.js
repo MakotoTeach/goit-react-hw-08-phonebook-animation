@@ -2,7 +2,7 @@ import React from "react";
 import { CSSTransition } from "react-transition-group";
 import styles from "./Layout.module.css";
 
-const Layout = ({ children }) => {
+export const Layout = ({ children }) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
@@ -21,4 +21,3 @@ const Layout = ({ children }) => {
   );
 };
 
-export default Layout;

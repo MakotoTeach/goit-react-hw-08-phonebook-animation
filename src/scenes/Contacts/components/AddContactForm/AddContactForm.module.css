@@ -1,5 +1,5 @@
-@value input-width from '../../vars.module.css';
-@value input-height from '../../vars.module.css';
+@value input-width from '../../../../vars.module.css';
+@value input-height from '../../../../vars.module.css';
 
 .submitForm{
   width: 500px;
